@@ -15,10 +15,7 @@ class App extends Component {
     currentTask: ""
   };
 
-  // counter = 5;
-  // counterIncrease = () => {
-  //   counter++ 
-  // }
+  
   changeCurrTask = (event) => {
     let currentTask = [...this.state.currentTask]
     currentTask = event.target.value;
