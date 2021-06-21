@@ -3,32 +3,36 @@ import './App.css';
 import Task from './task/task';
 import TaskForm from './task/addTaskForm'
 import uuid from "uuid/v4";
-
+ 
 class App extends Component {
   state = {
     task: [
-      {text: 'Kill bill', id: uuid()},
-      {text: 'Fuck Trump', id: uuid()},
-      {text: 'Lay down', id: uuid()},
-      {text: 'Carry out', id: uuid()}
+      {text: '4:30am – Wake up', id: uuid()},
+      {text: 'Eat Breakfast', id: uuid()},
+      {text: 'Exericise', id: uuid()},
+      {text: 'Meditation', id: uuid()},
+      {text: 'Groceries after Work', id: uuid()},
+      {text: 'Clean Everything', id: uuid()},
+      {text: 'Relax for the rest of the night', id: uuid()}
     ],
     currentTask: ""
   };
 
-  
+   
   changeCurrTask = (event) => {
     let currentTask = [...this.state.currentTask]
     currentTask = event.target.value;
     this.setState({currentTask})
   }
 
-  addTask = (event) => {
+  addTask = () => {
     const task = [...this.state.task];
     let currentTask = [...this.state.currentTask]
     const newTask = {text: currentTask, id: uuid()}
     task.push(newTask);
-
     this.setState({task});
+    currentTask = ''
+    this.setState({currentTask})
   }
 
   removeTask = (id) => {
